@@ -5,12 +5,6 @@ export default function NavBar() {
   return (
     <nav>
       <img src="/vercel.svg" />
-      <Link href="/" legacyBehavior>
-        <a className={router.pathname === "/" ? "active" : ""}>Home</a>
-      </Link>
-      <Link href="/about" legacyBehavior>
-        <a className={router.pathname === "/about" ? "active" : ""}>About</a>
-      </Link>
       <div>
         <Link href="/" legacyBehavior>
           <a className={router.pathname === "/" ? "active" : ""}>Home</a>
@@ -20,8 +14,6 @@ export default function NavBar() {
         </Link>
       </div>
       <style jsx>{`
-        a {
-          text-decoration: none;
         nav {
           display: flex;
           gap: 10px;

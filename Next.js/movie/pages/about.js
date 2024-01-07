@@ -1,12 +1,10 @@
-import Head from "next/head"
+import Seo from "../components/Seo";
 
-export default function about() {
+export default function Potato() {
   return (
     <div>
-      <Head>  
-        <title>About | Next Movies</title>
-      </Head>
-      <h1>About us</h1>
+      <Seo title="About" />
+      <h1>About</h1>
     </div>
-  )
+  );
 }
