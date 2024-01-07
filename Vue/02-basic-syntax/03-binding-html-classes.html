@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: crimson;
+    }
+
+    .text-primary {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Binding to Objects -->
+    <div :class="{active: is_active }">Text</div>
+    <div class="static" :class="{active : is_active, 'text-primary' : hasInfo}">Text</div>
+    <div class="static" :class="classobj">Text</div>
+
+    <!-- Binding to Arrays -->
+    <div :class="[activeClass, infoClass]">Text</div>
+    <div :class="[{active : is_active}, infoClass]">Text</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const is_active = ref(true)
+        const hasInfo = ref(true)
+        const classobj = ref({
+          active : is_active,
+          'text-primary' : hasInfo
+        })
+        const activeClass = ref('active')
+        const infoClass = ref('text-primary')
+        return {
+          is_active,
+          hasInfo,
+          classobj,
+          activeClass,
+          infoClass
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Binding to Objects -->
+    <div :style="{ color : activeColor, fontSize : fontSize +'px'}">Text</div>
+    <div :style="{ 'font-size' : fontSize +'px'}">Text</div>
+    <div :style="styleobj">Text</div>
+
+    <!-- Binding to Arrays -->
+    <div :style="[styleobj,styleobj2]">Text</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const activeColor = ref('crimson')
+        const fontSize = ref(50)
+        const styleobj = ref({
+          color : activeColor,
+          fontSize : fontSize.value +'px'
+        })
+        const styleobj2 = ref({
+          color:'blue',
+          border:'1px solid black'
+        })
+        return {
+          activeColor,
+          fontSize,
+          styleobj,
+          styleobj2
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

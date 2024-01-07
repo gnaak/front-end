@@ -1,0 +1,17 @@
+{% block content %}
+  {% for article in articles %}
+    <form class = "like-form" data-article-id="{{article.pk"}}  
+  {% endfor %}
+{% endblock %}
+
+{% block script %}
+const forms = document.querySelectorAll('.like-form')
+forms.forEach(function (form) {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault()
+    const articleId = event.target.dataset.articleId
+		//...//
+    })
+})
+
+{% endblock %}

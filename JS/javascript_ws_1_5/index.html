@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+  <section>
+    <article class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </article>
+    <!-- 아래에 새로운 card 생성 및 추가 -->
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script>
+    // JS를 이용하여 기존의 제시되어 있는 article.card와 동일한 구조
+    const section = document.querySelector('section')
+    // 수동
+    const newArticle  = document.createElement('article')
+    console.log(newArticle)
+    newArticle.classList.add('card')
+    // newArticle.setAttribute('style','width: 18rem;')
+    newArticle.style.width='18rem'
+    const div = document.createElement('div')
+    div.classList.add('card-body')
+    const h5 = document.createElement('h5')
+    h5.classList.add('card-title')
+    h5.textContent='제목'
+    const p = document.createElement('p')
+    p.classList.add('card-text')
+    p.textContent='내용'
+
+    newArticle.appendChild(div)
+    div.appendChild(h5)
+    div.appendChild(p)
+
+    section.appendChild(newArticle)
+    
+    const oldArticle = document.querySelector('article')
+    section.removeChild(oldArticle)
+    section.appendChild(oldArticle)
+    // 새롭게 생성된 뒤에는 기존 article을 삭제 
+  </script>
+
+</body>
+</html>
