@@ -1,22 +1,26 @@
-import { Suspense } from 'react'
-import './App.css'
-import { Canvas } from '@react-three/fiber'
-import { Environment, OrbitControls, ContactShadows, OrthographicCamera } from '@react-three/drei'
-import Earth from '../public/Untitled'
+import { Suspense } from "react";
+import "./App.css";
+import { Canvas } from "@react-three/fiber";
+import {
+  Environment,
+  OrbitControls,
+  ContactShadows,
+  OrthographicCamera,
+} from "@react-three/drei";
+import Map from "./components/Map";
+import Monkey from "./components/Monkey";
+import Dice from "./components/Dice";
 
 function App() {
-  
   return (
     <>
       <Canvas>
         <ambientLight intensity={1} />
-        <OrthographicCamera makeDefault zoom={64} position={[-0, 1, -0]} />
+        <OrthographicCamera makeDefault zoom={32} position={[4, 4, 4]} />
         <OrbitControls />
         <Suspense fallback={null}>
-          <Earth
-            position={[-10, -20, 0]}
-            rotation={[2.3,0.4,3.3]}
-          />
+          <Map />
+          <Monkey />
         </Suspense>
         <Environment preset="sunset" />
         <ContactShadows
@@ -28,8 +32,9 @@ function App() {
           resolution={256}
           color="#000000"
         />
+        <Dice />
       </Canvas>
     </>
   );
 }
-export default App
+export default App;
